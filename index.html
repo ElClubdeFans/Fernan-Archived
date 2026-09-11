@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -6,22 +7,35 @@
 <title>El Club De Fans</title>
 <style>
   body{margin:0;background:#000;color:#ccc;overflow-x:hidden}
-  /* BORDES FIJOS */
   .border-top{position:fixed;top:0;left:0;right:0;height:26px;background:#000;color:#1aff00;font-family:monospace;font-weight:bold;font-size:14px;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:2px;white-space:nowrap;overflow:hidden}
   .border-bottom{position:fixed;bottom:0;left:0;right:0;height:26px;background:#000;color:#1aff00;font-family:monospace;font-weight:bold;font-size:14px;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:2px;white-space:nowrap;overflow:hidden}
   .border-side{position:fixed;top:30px;bottom:30px;width:28px;background:#000;color:#1aff00;font-family:monospace;font-size:13px;font-weight:bold;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:3px}
   .left{left:0}.right{right:0;transform:rotate(180deg)}
-  
-  /* CONTENIDO CON ESPACIO PARA LOS BORDES */
   .content{margin:40px 42px 40px 42px;padding:20px 10px;min-height:150vh}
-  .title{text-align:center;font-family:Impact;color:#4eff2a;font-size:42px;margin-top:10px}
+    .title-marquee{overflow:hidden;white-space:nowrap;box-sizing:border-box;margin-top:10px;padding:10px 0}
+  .title-marquee span{display:inline-block;font-family:Impact;color:#4eff2a;font-size:42px;text-shadow:0 0 8px #1a7a00;animation:scroll 12s linear infinite}
+  @keyframes scroll{0%{transform:translateX(100%)}100%{transform:translateX(-100%)}}}
   .subtitle{text-align:center;font-family:Verdana;color:#8a8a8a;font-size:13px;max-width:700px;margin:0 auto 25px;line-height:1.5}
   .main-section{display:flex;gap:20px;max-width:900px;margin:0 auto;padding:15px}
   .main-section img{width:300px;max-width:100%;border:3px solid #1aff00}
   .text{font-family:Verdana;color:#9e9e9e;font-size:14px;line-height:1.6}
   .hidden-link{color:inherit;text-decoration:none}.hidden-link:hover{color:#1aff00;text-shadow:0 0 8px #1aff00}
-  .extra-info{max-width:900px;margin:40px auto;padding:20px;border:1px dashed #1aff00;color:#777;font-family:Verdana;font-size:13px}
-  @media(max-width:700px){.main-section{flex-direction:column;align-items:center}.title{font-size:32px}}
+  
+  /* NUEVA SECCION */
+  .quienes-section{max-width:900px;margin:60px auto 0 auto;padding:20px;display:flex;gap:25px;align-items:center}
+  .quienes-left{flex:1.2;text-align:left}
+  .quienes-title{font-family:Impact, sans-serif;color:#1a7a00;font-size:38px;margin:0 0 12px 0;letter-spacing:1px;text-transform:uppercase}
+  .quienes-text{font-family:Verdana;color:#9e9e9e;font-size:14px;line-height:1.7;text-align:left}
+  .quienes-right{flex:0.8}
+  .quienes-right video, .quienes-right iframe{width:100%;border:3px solid #1aff00;box-shadow:0 0 12px rgba(26,255,0,0.3)}
+
+  @media(max-width:700px){
+    .main-section{flex-direction:column;align-items:center}
+    .quienes-section{flex-direction:column}
+    .title{font-size:32px}
+    .quienes-title{font-size:28px;text-align:center}
+    .quienes-text{text-align:center}
+  }
 </style>
 </head>
 <body>
@@ -30,13 +44,32 @@
 <div class="border-side right">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 
 <div class="content">
-  <div class="title">El Club De Fans</div>
+   <div class="title-marquee"><span>El Club De Fans - El Club De Fans - El Club De Fans - El Club De Fans - </span></div>
   <div class="subtitle">El Club de Fans ha sido creado para recopilar y guardar contenido de Fernanfloo, así tener todo lo posible de nuestro youtuber preferido :)</div>
+  
   <div class="main-section">
-    <img src="Picsart_26-09-08_21-34-55-903.jpg" alt="Fernanfloo">
+    <img src="fernan_img.jpg" alt="Fernanfloo">
     <div class="text">Club de fans, un grupo pequeño de Fernanfloo, queremos recopilar todo, <a href="felicidades/" class="hidden-link">sin que nos vea...</a></div>
   </div>
-  <div class="extra-info">Aquí puedes poner más texto, videos, imágenes, etc. Ya tienes el espacio libre. Por más que escribas, los bordes de abajo nunca se van a deformar.</div>
+
+  <!-- NUEVA SECCION QUIENES SOMOS -->
+  <div class="quienes-section">
+    <div class="quienes-left">
+      <h2 class="quienes-title">¿Quiénes Somos?</h2>
+      <p class="quienes-text">Somos un grupo de amigos y fans de Facebook, buscamos tener cada uno de los videos y publicaciones de Fernanfloo, se nos han escapado varios videos, pero algún los tenemos aquí, puedes verlos y hací revivir bagos recuerdos</p>
+    </div>
+    <div class="quienes-right">
+      <!-- VIDEO - OPCION 1: VIDEO TUYO -->
+      <video controls poster="fernan_img.jpg">
+        <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta video.
+      </video>
+      <!-- Si prefieres poner un video de YouTube, borra la etiqueta <video> de arriba y usa esto:
+      <iframe width="100%" height="200" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+      -->
+    </div>
+  </div>
+
 </div>
 
 <div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
