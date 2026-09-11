@@ -3,28 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>El Club De Fans - Fernanfloo</title>
+<title>El Club De Fans</title>
 <style>
-  body { background:#000; margin:0; color:#ccc; min-height:100vh; display:flex; flex-direction:column; }
-  .border-top,.border-bottom { background:#000; color:#1aff00; font-family:monospace; font-weight:bold; font-size:14px; letter-spacing:2px; text-align:center; padding:6px 0; border:2px solid #1aff00; white-space:nowrap; overflow:hidden; }
-  .border-side { position:fixed; top:0; bottom:0; width:32px; background:#000; color:#1aff00; font-family:monospace; font-size:14px; font-weight:bold; writing-mode:vertical-rl; letter-spacing:3px; display:flex; justify-content:center; border:2px solid #1aff00; z-index:10; }
-  .border-side.left { left:0; } .border-side.right { right:0; transform:rotate(180deg); }
-  .content { margin:0 42px; flex:1; /* ESTO LO EMPUJA */ min-height:120vh; padding-bottom:150px; }
-  .title { text-align:center; font-family:Impact, sans-serif; color:#4eff2a; font-size:52px; margin-top:30px; text-shadow:0 0 8px #1a7a00; }
-  .subtitle { text-align:center; font-family:Verdana; color:#8a8a8a; font-size:14px; max-width:700px; margin:0 auto 30px auto; line-height:1.6; }
-  .main-section { display:flex; gap:25px; max-width:900px; margin:0 auto; padding:20px; align-items:flex-start; }
-  .main-section img { width:320px; border:3px solid #1aff00; flex-shrink:0; }
-  .main-section .text { font-family:Verdana; color:#9e9e9e; font-size:14px; line-height:1.7; }
-  .hidden-link { color: inherit; text-decoration: none; transition: all 0.3s ease; cursor: pointer; }
-  .hidden-link:hover { color:#1aff00; text-shadow:0 0 8px #1aff00, 0 0 20px #1aff00; }
-  /* AQUI PUEDES AGREGAR MAS CAJAS DE INFO */
-  .extra-info { max-width:900px; margin:40px auto; padding:20px; border:1px dashed #1aff00; color:#777; font-family:Verdana; font-size:13px; }
+  body{margin:0;background:#000;color:#ccc;overflow-x:hidden}
+  /* BORDES FIJOS - YA NO SE MUEVEN */
+  .border-top{position:fixed;top:0;left:0;right:0;height:26px;background:#000;color:#1aff00;font-family:monospace;font-weight:bold;font-size:14px;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:2px;white-space:nowrap;overflow:hidden}
+  .border-bottom{position:fixed;bottom:0;left:0;right:0;height:26px;background:#000;color:#1aff00;font-family:monospace;font-weight:bold;font-size:14px;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:2px;white-space:nowrap;overflow:hidden}
+  .border-side{position:fixed;top:30px;bottom:30px;width:28px;background:#000;color:#1aff00;font-family:monospace;font-size:13px;font-weight:bold;writing-mode:vertical-rl;display:flex;align-items:center;justify-content:center;border:2px solid #1aff00;z-index:20;letter-spacing:3px}
+  .left{left:0}.right{right:0;transform:rotate(180deg)}
+  
+  /* CONTENIDO CON ESPACIO PARA LOS BORDES */
+  .content{margin:40px 42px 40px 42px;padding:20px 10px;min-height:150vh}
+  .title{text-align:center;font-family:Impact;color:#4eff2a;font-size:42px;margin-top:10px}
+  .subtitle{text-align:center;font-family:Verdana;color:#8a8a8a;font-size:13px;max-width:700px;margin:0 auto 25px;line-height:1.5}
+  .main-section{display:flex;gap:20px;max-width:900px;margin:0 auto;padding:15px}
+  .main-section img{width:300px;max-width:100%;border:3px solid #1aff00}
+  .text{font-family:Verdana;color:#9e9e9e;font-size:14px;line-height:1.6}
+  .hidden-link{color:inherit;text-decoration:none}.hidden-link:hover{color:#1aff00;text-shadow:0 0 8px #1aff00}
+  .extra-info{max-width:900px;margin:40px auto;padding:20px;border:1px dashed #1aff00;color:#777;font-family:Verdana;font-size:13px}
+  @media(max-width:700px){.main-section{flex-direction:column;align-items:center}.title{font-size:32px}}
 </style>
 </head>
 <body>
-<div class="border-top">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
-<div class="border-side left">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
-<div class="border-side right">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
+<div class="border-top">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
+<div class="border-side left">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
+<div class="border-side right">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 
 <div class="content">
   <div class="title">El Club De Fans</div>
@@ -33,15 +36,9 @@
     <img src="fernan_img.jpg" alt="Fernanfloo">
     <div class="text">Club de fans, un grupo pequeño de Fernanfloo, queremos recopilar todo, <a href="felicidades/" class="hidden-link">sin que nos vea...</a></div>
   </div>
-
-  <!-- AGREGA AQUI TODA LA INFO QUE QUIERAS, YA TIENES ESPACIO -->
-  <div class="extra-info">
-    Aquí puedes poner más texto, videos, imágenes, etc.<br>
-    Ya tienes el espacio libre.
-  </div>
-
+  <div class="extra-info">Aquí puedes poner más texto, videos, imágenes, etc. Ya tienes el espacio libre. Por más que escribas, los bordes de abajo nunca se van a deformar.</div>
 </div>
 
-<div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
+<div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 </body>
 </html>
