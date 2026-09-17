@@ -8,7 +8,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial,sans-serif}
 body{background:#f5f5f5}
 .header{background:#fff;padding:10px 12px;position:sticky;top:0;z-index:99;border-bottom:1px solid #eee;display:flex;align-items:center;gap:10px}
-.logo-box{width:120px;height:36px;background:#000;color:#00ff41;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px;cursor:pointer}
+.logo-box{width:120px;height:36px;background:#000;color:#00ff41;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:12px}
 .search{flex:1;background:#f0f0f0;border-radius:20px;padding:8px 14px;border:none;outline:none}
 .cart-btn{background:#000;color:#fff;border:none;padding:8px 12px;border-radius:20px;font-size:13px;cursor:pointer}
 .cart-btn span{background:#ff3b30;border-radius:50%;padding:2px 6px;margin-left:5px;font-size:11px}
@@ -22,7 +22,6 @@ body{background:#f5f5f5}
 .old{color:#999;font-size:11px;text-decoration:line-through;margin-left:4px}
 .sold{font-size:10px;color:#666;margin-top:2px}
 .btn-add{width:100%;margin-top:6px;background:#000;color:#fff;border:none;padding:6px;border-radius:20px;font-size:12px;font-weight:bold}
-/* carrito */
 #cartDrawer{position:fixed;top:0;right:-100%;width:85%;max-width:360px;height:100%;background:#fff;z-index:1000;transition:.3s;padding:15px;overflow-y:auto;box-shadow:-5px 0 20px rgba(0,0,0,.2)}
 #cartDrawer.open{right:0}
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);display:none;z-index:999}
@@ -46,186 +45,35 @@ body{background:#f5f5f5}
   <h3 style="display:flex;justify-content:space-between">Carrito <span onclick="closeCart()" style="cursor:pointer">X</span></h3>
   <div id="cartItems" style="margin-top:15px"></div>
   <div id="cartTotal" style="margin-top:15px;font-weight:900"></div>
-  <button style="width:100%;margin-top:10px;background:#fb7701;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:bold" onclick="alert('ARG: Este producto no existe, es parte del juego... o si?')">COMPRAR AHORA</button>
+  <button style="width:100%;margin-top:10px;background:#fb7701;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:bold" onclick="location.href='../chorizo/'">COMPRAR AHORA</button>
 </div>
 
 <script>
-// ===== EDITAR PRODUCTOS AQUÍ =====
 const productos = [
-  {
-    id:16,
-    nombre:"Lentes Curly Power ORIGINALES 2016 - Solo 6 disponibles",
-    precio: 12.99,
-    precioOld: 59.99,
-    img:"https://i.imgur.com/8Km9t.jpg",
-    vendidos:"2.3k+ vendidos",
-    rating:"★ 4.9 (1,203)"
-  },
-  {
-    id:89,
-    nombre:"Lata Chorizo Energy - Sabor a Chorizo Real",
-    precio: 4.50,
-    precioOld: 15.00,
-    img:"https://i.imgur.com/Q8g2s.png",
-    vendidos:"8.1k+ vendidos",
-    rating:"★ 4.8 (3,421)"
-  },
-  {
-    id:3,
-    nombre:"USB Perdido de Fernanfloo 32GB - Archivos Borrados",
-    precio: 29.99,
-    precioOld: 89.99,
-    img:"https://i.imgur.com/xyz.png",
-    vendidos:"666 vendidos",
-    rating:"★ 5.0 (89)"
-  }
+  {id:1,nombre:"Lentes Curly Power ORIGINALES 2016",precio:12.99,precioOld:59.99,img:"https://via.placeholder.com/300/000/0f0?text=LENTES",vendidos:"2.3k+ vendidos",rating:"★ 4.9 (1,203)"},
+  {id:2,nombre:"Lata Chorizo Energy - Sabor a Chorizo Real",precio:4.50,precioOld:15.00,img:"https://via.placeholder.com/300/f00/fff?text=CHORIZO",vendidos:"8.1k+ vendidos",rating:"★ 4.8 (3,421)"},
+  {id:3,nombre:"USB Perdido de Fernanfloo 32GB",precio:29.99,precioOld:89.99,img:"https://via.placeholder.com/300/000/00ff41?text=USB",vendidos:"666 vendidos",rating:"★ 5.0 (89)"},
+  {id:4,nombre:"Camiseta 'Me Gusta El Chorizo' 2014",precio:9.99,precioOld:34.99,img:"https://via.placeholder.com/300/ff3b30/fff?text=CAMISETA",vendidos:"5.4k+ vendidos",rating:"★ 4.7 (892)"},
+  {id:5,nombre:"Gorra El Club De Fans - 10 Años",precio:7.50,precioOld:22.00,img:"https://via.placeholder.com/300/222/fff?text=GORRA",vendidos:"1.2k+ vendidos",rating:"★ 4.9 (341)"},
+  {id:6,nombre:"Peluca Curly Power",precio:18.00,precioOld:45.00,img:"https://via.placeholder.com/300/ffcc00/000?text=PELUCA",vendidos:"3.8k+ vendidos",rating:"★ 4.6 (512)"},
+  {id:7,nombre:"DVD Videos Perdidos 2012-2013",precio:25.00,precioOld:70.00,img:"https://via.placeholder.com/300/000/fff?text=DVD",vendidos:"432 vendidos",rating:"★ 5.0 (123)"},
+  {id:8,nombre:"Llavero Lata Chorizo - Brilla",precio:2.99,precioOld:9.99,img:"https://via.placeholder.com/300/00ff41/000?text=LLAVERO",vendidos:"10k+ vendidos",rating:"★ 4.8 (2,901)"},
+  {id:9,nombre:"Póster Lápida Fernanfloo RIP",precio:6.66,precioOld:19.99,img:"https://via.placeholder.com/300/444/fff?text=LAPIDA",vendidos:"666 vendidos",rating:"★ 4.9 (666)"},
+  {id:10,nombre:"Cuaderno Secretos del Club",precio:11.00,precioOld:30.00,img:"https://via.placeholder.com/300/8B4513/fff?text=CUADERNO",vendidos:"890 vendidos",rating:"★ 4.7 (210)"},
+  {id:11,nombre:"Taza 'Todavía Sigues Aquí?'",precio:8.99,precioOld:24.99,img:"https://via.placeholder.com/300/fff/000?text=TAZA",vendidos:"2.1k+ vendidos",rating:"★ 4.8 (445)"},
+  {id:12,nombre:"Pack 100 Stickers 2012-2016",precio:3.50,precioOld:12.99,img:"https://via.placeholder.com/300/ff69b4/000?text=STICKERS",vendidos:"7.7k+ vendidos",rating:"★ 4.9 (1,100)"},
+  {id:13,nombre:"Audifonos Gaming de Fernan",precio:33.00,precioOld:99.99,img:"https://via.placeholder.com/300/00f/fff?text=AUDIFONOS",vendidos:"1.5k+ vendidos",rating:"★ 4.6 (678)"},
+  {id:14,nombre:"Caja Misteriosa 'NO ABRIR HASTA 2026'",precio:15.99,precioOld:49.99,img:"https://via.placeholder.com/300/111/0f0?text=CAJA",vendidos:"2,026 vendidos",rating:"★ 5.0 (2,026)"},
+  {id:15,nombre:"Figura Fernan con Control",precio:22.50,precioOld:60.00,img:"https://via.placeholder.com/300/f00/fff?text=FIGURA",vendidos:"3k+ vendidos",rating:"★ 4.8 (890)"},
+  {id:16,nombre:"Membresía Dorada - Acceso al /chorizo",precio:1.00,precioOld:100.00,img:"https://via.placeholder.com/300/FFD700/000?text=GOLD",vendidos:"10k+ vendidos",rating:"★ 4.9 (9,999)"}
 ];
-const productos = [
-  {
-    id:17,
-    nombre:"Lentes Curly Power ORIGINALES 2016 - Solo 6 disponibles",
-    precio: 12.99,
-    precioOld: 59.99,
-    img:"https://i.imgur.com/8Km9t.jpg",
-    vendidos:"2.3k+ vendidos",
-    rating:"★ 4.9 (1,203)"
-  },
-  {
-    id:2,
-    nombre:"Lata Chorizo Energy - Sabor a Chorizo Real",
-    precio: 4.50,
-    precioOld: 15.00,
-    img:"https://i.imgur.com/Qw2p0.png",
-    vendidos:"8.1k+ vendidos",
-    rating:"★ 4.8 (3,421)"
-  },
-  {
-    id:3,
-    nombre:"USB Perdido de Fernanfloo 32GB - Archivos Borrados",
-    precio: 29.99,
-    precioOld: 89.99,
-    img:"https://via.placeholder.com/300/000000/00ff41?text=USB+PERDIDO",
-    vendidos:"666 vendidos",
-    rating:"★ 5.0 (89)"
-  },
-  // 13 NUEVOS - TU ARG
-  {
-    id:4,
-    nombre:"Camiseta Oficial 'Me Gusta El Chorizo' 2014 - Talla M",
-    precio: 9.99,
-    precioOld: 34.99,
-    img:"https://via.placeholder.com/300/ff3b30/ffffff?text=CAMISETA+CHORIZO",
-    vendidos:"5.4k+ vendidos",
-    rating:"★ 4.7 (892)"
-  },
-  {
-    id:5,
-    nombre:"Gorra El Club De Fans - Edición 10 Años",
-    precio: 7.50,
-    precioOld: 22.00,
-    img:"https://via.placeholder.com/300/222/fff?text=GORRA+CLUB",
-    vendidos:"1.2k+ vendidos",
-    rating:"★ 4.9 (341)"
-  },
-  {
-    id:6,
-    nombre:"Peluca Curly Power - Para ver chorizos 24/7",
-    precio: 18.00,
-    precioOld: 45.00,
-    img:"https://via.placeholder.com/300/ffcc00/000?text=PELUCA+CURLY",
-    vendidos:"3.8k+ vendidos",
-    rating:"★ 4.6 (512)"
-  },
-  {
-    id:7,
-    nombre:"DVD Videos Perdidos 2012-2013 - No subir a YouTube",
-    precio: 25.00,
-    precioOld: 70.00,
-    img:"https://via.placeholder.com/300/000/fff?text=DVD+PERDIDO",
-    vendidos:"432 vendidos",
-    rating:"★ 5.0 (123)"
-  },
-  {
-    id:8,
-    nombre:"Llavero Lata Chorizo - Brilla en la oscuridad",
-    precio: 2.99,
-    precioOld: 9.99,
-    img:"https://via.placeholder.com/300/00ff41/000?text=LLAVERO",
-    vendidos:"10k+ vendidos",
-    rating:"★ 4.8 (2,901)"
-  },
-  {
-    id:9,
-    nombre:"Póster Lápida Fernanfloo RIP - tombstonebuilder.com",
-    precio: 6.66,
-    precioOld: 19.99,
-    img:"https://via.placeholder.com/300/444/fff?text=LAPIDA+RIP",
-    vendidos:"666 vendidos",
-    rating:"★ 4.9 (666)"
-  },
-  {
-    id:10,
-    nombre:"Cuaderno Secretos del Club - Páginas arrancadas",
-    precio: 11.00,
-    precioOld: 30.00,
-    img:"https://via.placeholder.com/300/brown/fff?text=CUADERNO",
-    vendidos:"890 vendidos",
-    rating:"★ 4.7 (210)"
-  },
-  {
-    id:11,
-    nombre:"Taza Mágica 'Todavía Sigues Aquí?' - Cambia con calor",
-    precio: 8.99,
-    precioOld: 24.99,
-    img:"https://via.placeholder.com/300/fff/000?text=TAZA+MAGICA",
-    vendidos:"2.1k+ vendidos",
-    rating:"★ 4.8 (445)"
-  },
-  {
-    id:12,
-    nombre:"Pack 100 Stickers 2012-2016 - Incluye chorizo",
-    precio: 3.50,
-    precioOld: 12.99,
-    img:"https://via.placeholder.com/300/pink/000?text=STICKERS",
-    vendidos:"7.7k+ vendidos",
-    rating:"★ 4.9 (1,100)"
-  },
-  {
-    id:13,
-    nombre:"Audifonos Gaming de Fernan - Micro dañado a propósito",
-    precio: 33.00,
-    precioOld: 99.99,
-    img:"https://via.placeholder.com/300/blue/fff?text=AUDIFONOS",
-    vendidos:"1.5k+ vendidos",
-    rating:"★ 4.6 (678)"
-  },
-  {
-    id:14,
-    nombre:"Caja Misteriosa 'NO ABRIR HASTA 2026'",
-    precio: 15.99,
-    precioOld: 49.99,
-    img:"https://via.placeholder.com/300/111/00ff41?text=CAJA+MISTERIOSA",
-    vendidos:"2,026 vendidos",
-    rating:"★ 5.0 (2,026)"
-  },
-  {
-    id:15,
-    nombre:"Figura Fernan con Control - Edición Happy Wheels",
-    precio: 22.50,
-    precioOld: 60.00,
-    img:"https://via.placeholder.com/300/red/fff?text=FIGURA+FERNAN",
-    vendidos:"3k+ vendidos",
-    rating:"★ 4.8 (890)"
-  },
-  {
-    id:16,
-    nombre:"Membresía Dorada Club De Fans - Acceso al /chorizo",
+
 let carrito = [];
 const grid = document.getElementById('grid');
 productos.forEach(p=>{
   grid.innerHTML+=`
   <div class="card">
-    <img src="${p.img}" onclick="alert('${p.nombre}')">
+    <img src="${p.img}">
     <div class="info">
       <div class="title">${p.nombre}</div>
       <div style="font-size:10px">${p.rating}</div>
@@ -235,7 +83,6 @@ productos.forEach(p=>{
     </div>
   </div>`;
 });
-
 function addCart(id){
   const prod = productos.find(x=>x.id===id);
   carrito.push(prod);
@@ -249,12 +96,4 @@ function renderCart(){
   let total=0;
   carrito.forEach((p,i)=>{
     total+=p.precio;
-    c.innerHTML+=`<div style="display:flex;gap:8px;margin-bottom:10px;border-bottom:1px solid #eee;padding-bottom:8px"><img src="${p.img}" style="width:50px;height:50px;object-fit:cover"><div style="flex:1;font-size:12px">${p.nombre}<br><b>$${p.precio}</b></div><span onclick="carrito.splice(${i},1);renderCart();document.getElementById('cartCount').innerText=carrito.length" style="cursor:pointer">x</span></div>`;
-  });
-  document.getElementById('cartTotal').innerText = "Total: $"+total.toFixed(2);
-}
-function openCart(){document.getElementById('cartDrawer').classList.add('open');document.getElementById('overlay').classList.add('show')}
-function closeCart(){document.getElementById('cartDrawer').classList.remove('open');document.getElementById('overlay').classList.remove('show')}
-</script>
-</body>
-    </html>
+    c.innerHTML+=`<div style="display:flex;gap:8px;margin-bottom:10px;border-bottom:1px solid #eee;padding-bottom:8px"><img src="${p.img}" style="width:50px;height:50px;object-fit:cover"><div style="flex:1;font-size:12px">${p.nombre}<br><b>$${p.precio}</b
