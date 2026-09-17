@@ -16,120 +16,47 @@
 
 <div style="max-width:650px; margin:0 auto; background:#fff;">
 
-  <!-- POST 1 - GAMER 2012 -->
+  <!-- POST 1 -->
   <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
     <div style="padding:10px; display:flex; gap:10px;">
       <img src="https://i.pravatar.cc/100?img=8" style="width:50px; height:50px; border-radius:50%;">
-      <div>
-        <b style="color:#000;">xX_DarkSasuke_Xx</b> <span style="color:#888; font-size:12px;">@sasuke_pro_2001</span><br>
-        <span style="font-size:11px; color:#999;">Hace 5 horas · desde su cuarto</span>
-      </div>
+      <div><b style="color:#000;">xX_DarkSasuke_Xx</b> <span style="color:#888; font-size:12px;">@sasuke_pro_2001</span><br><span style="font-size:11px; color:#999;">Hace 5 horas · desde su cuarto</span></div>
     </div>
-    <div style="padding:0 12px 12px 12px; font-size:14px;">
-      Hoy me quede jugando MineCraft hasta las 3am y mi mama me regaño xD pero valio la pena hice una casa de diamante gigante :v alguien quiere jugar en mi server hamachi?? dejen su ip
-      <br><br><img src="https://i.imgur.com/CzXTtJV.jpg" style="width:100%; border:1px solid #ccc;">
-    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">Hoy me quede jugando MineCraft hasta las 3am y mi mama me regaño xD pero valio la pena hice una casa de diamante gigante :v alguien quiere jugar en mi server hamachi?? dejen su ip<br><br><img src="https://i.imgur.com/CzXTtJV.jpg" style="width:100%; border:1px solid #ccc;"></div>
     <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
-      <span style="cursor:pointer;" onclick="likeMe('l1')">👍 Me gusta (<b id="l1">89</b>)</span> &nbsp; <span>💬 Comentar (12)</span>
+      <span style="cursor:pointer;" onclick="likeMe('l1')"><b>👍 Me gusta (<span id="l1">89</span>)</b></span> &nbsp; <span style="cursor:pointer; color:#3b5998; font-weight:bold;" onclick="toggle('c1')">💬 Comentar (12)</span>
+    </div>
+    <div id="c1" style="display:none; padding:10px; background:#fff; border-top:1px solid #eee; font-size:12px;">
+      <div><b>Steve_Master:</b> pasa la ip del hamachi bro</div><div style="margin-top:5px;"><b>Creeper99:</b> yo juego a las 8pm</div>
+      <input style="width:95%; padding:6px; margin-top:8px; border:1px solid #ccc;" placeholder="Escribe un comentario..." onkeydown="if(event.key==='Enter') add(this,'nc1')">
+      <div id="nc1"></div>
     </div>
   </div>
 
-  <!-- POST 2 - GATITOS -->
+  <!-- POST 2 -->
   <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
     <div style="padding:10px; display:flex; gap:10px;">
       <img src="https://i.pravatar.cc/100?img=5" style="width:50px; height:50px; border-radius:50%;">
-      <div>
-        <b style="color:#000;">GatitaMiau2012</b> <span style="color:#888; font-size:12px;">@mishi_lover</span><br>
-        <span style="font-size:11px; color:#999;">Hace 8 horas · desde mi casa</span>
-      </div>
+      <div><b style="color:#000;">GatitaMiau2012</b> <span style="color:#888; font-size:12px;">@mishi_lover</span><br><span style="font-size:11px; color:#999;">Hace 8 horas · desde mi casa</span></div>
     </div>
-    <div style="padding:0 12px 12px 12px; font-size:14px;">
-      Miren a mi gatito se llama Michifus esta dormido todo el dia jajaja es tan bonito lo amo mucho <3 le compre un sombrerito
-      <br><br><img src="https://i.imgur.com/7bHv6cO.jpg" style="width:100%; border:1px solid #ccc;">
-    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">Miren a mi gatito se llama Michifus esta dormido todo el dia jajaja es tan bonito lo amo mucho <3 le compre un sombrerito<br><br><img src="https://i.imgur.com/7bHv6cO.jpg" style="width:100%; border:1px solid #ccc;"></div>
     <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
-      <span style="cursor:pointer;" onclick="likeMe('l2')">👍 Me gusta (<b id="l2">210</b>)</span> &nbsp; <span>💬 Comentar (45)</span>
+      <span style="cursor:pointer;" onclick="likeMe('l2')"><b>👍 Me gusta (<span id="l2">210</span>)</b></span> &nbsp; <span style="cursor:pointer; color:#3b5998; font-weight:bold;" onclick="toggle('c2')">💬 Comentar (45)</span>
+    </div>
+    <div id="c2" style="display:none; padding:10px; background:#fff; border-top:1px solid #eee; font-size:12px;">
+      <div><b>CatLover22:</b> que hermoso michi!!</div><div style="margin-top:5px;"><b>GatitaMiau2012:</b> gracias!! se llama michifus :3</div>
+      <input style="width:95%; padding:6px; margin-top:8px; border:1px solid #ccc;" placeholder="Escribe..." onkeydown="if(event.key==='Enter') add(this,'nc2')">
+      <div id="nc2"></div>
     </div>
   </div>
 
-  <!-- POST 3 - FERNANFLOO PERDIDO ENTRE TODOS -->
+  <!-- POST 3 FERNANFLOO -->
   <div style="border:2px solid #ff9900; margin:15px 8px; padding:0; background:#fffbf0;">
     <div style="background:#ff9900; color:#fff; font-size:10px; padding:3px 8px;">⭐ POST DESTACADO DEL DIA</div>
     <div style="padding:10px; display:flex; gap:10px;">
       <img src="fernan.jpg" style="width:50px; height:50px; border-radius:50%; border:2px solid #ff9900; cursor:pointer;" onclick="location.href='fernanfloo/'">
-      <div>
-        <b style="color:#cc0000; cursor:pointer;" onclick="location.href='fernanfloo/'">Fernanfloo</b> 
-        <span style="background:#1d9bf0; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px;">✔ Verificado</span>
-        <span style="color:#888; font-size:12px;">@fernanfloo</span><br>
-        <span style="font-size:11px; color:#999;">Hace 2 horas · desde El Salvador</span>
-      </div>
+      <div><b style="color:#cc0000; cursor:pointer;" onclick="location.href='fernanfloo/'">Fernanfloo</b> <span style="background:#1d9bf0; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px;">✔ Verificado</span> <span style="color:#888; font-size:12px;">@fernanfloo</span><br><span style="font-size:11px; color:#999;">Hace 2 horas · desde El Salvador</span></div>
     </div>
-    <div style="padding:0 12px 12px 12px; font-size:14px;">
-      Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v
-      <br><br><img src="fernan.jpg" style="width:100%; border:1px solid #ccc;">
-    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v<br><br><img src="fernan.jpg" style="width:100%; border:1px solid #ccc;"></div>
     <div style="background:#f5f5f5; padding:8px 12px; font-size:13px; border-top:1px solid #ccc;">
-      <span id="b3" style="cursor:pointer; font-weight:bold; color:#3b5998;" onclick="likeMe('l3')">👍 Me gusta (<b id="l3">2431</b>)</span> &nbsp; <span style="font-weight:bold; color:#3b5998;">💬 Comentar (312)</span>
-      <span id="t3" style="float:right; font-size:11px; color:#ff9900;"></span>
-    </div>
-  </div>
-
-  <!-- POST 4 - RANDOM DIA -->
-  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
-    <div style="padding:10px; display:flex; gap:10px;">
-      <img src="https://i.pravatar.cc/100?img=12" style="width:50px; height:50px; border-radius:50%;">
-      <div>
-        <b>sofi_xD_2000</b> <span style="color:#888; font-size:12px;">@sofi_cute</span><br>
-        <span style="font-size:11px; color:#999;">Ayer · desde el colegio</span>
-      </div>
-    </div>
-    <div style="padding:0 12px 12px 12px; font-size:14px;">
-      Hoy fue un dia horrible en el colegio, nos dejaron mucha tarea de matematicas y no entiendo nada :( alguien me ayuda?? despues les cuento un chisme jaja
-    </div>
-    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
-      <span style="cursor:pointer;" onclick="likeMe('l4')">👍 Me gusta (<b id="l4">54</b>)</span> &nbsp; <span>💬 Comentar (9)</span>
-    </div>
-  </div>
-
-  <!-- POST 5 - VIDEOJUEGOS -->
-  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
-    <div style="padding:10px; display:flex; gap:10px;">
-      <img src="https://i.pravatar.cc/100?img=15" style="width:50px; height:50px; border-radius:50%;">
-      <div>
-        <b>ElProGamer_SV</b> <span style="color:#888; font-size:12px;">@pro_gamer_sv</span><br>
-        <span style="font-size:11px; color:#999;">Hace 1 dia · desde San Salvador</span>
-      </div>
-    </div>
-    <div style="padding:0 12px 12px 12px; font-size:14px;">
-      Alguien mas esta jugando GTA V?? lo acaban de sacar para PC y esta epico, yo ya hice mi primer atraco con mis amigos xD si quieren jugamos, mi ID: ProGamer_SV_2012
-    </div>
-    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
-      <span style="cursor:pointer;" onclick="likeMe('l5')">👍 Me gusta (<b id="l5">132</b>)</span> &nbsp; <span>💬 Comentar (28)</span>
-    </div>
-  </div>
-
-  <center style="margin:25px 0; font-size:11px; color:#999; border-top:2px dashed #ff9900; padding:15px;">
-    BlogsDelDia.org © 2012-2015<br>Creado por Carlitos - Visitante N° <span style="background:#000; color:#0f0; padding:2px 5px; font-family:monospace;">0045829</span><br>
-    19476
-  </center>
-
-</div>
-
-<script>
-function likeMe(id){
-  const el = document.getElementById(id);
-  let num = parseInt(el.textContent);
-  if(el.dataset.liked !== '1'){
-    el.textContent = num + 1;
-    el.dataset.liked = '1';
-    if(id==='l3'){ document.getElementById('t3').textContent='¡Te gusta! (solo tu)'; }
-  } else {
-    el.textContent = num - 1;
-    el.dataset.liked = '0';
-    if(id==='l3'){ document.getElementById('t3').textContent=''; }
-  }
-}
-</script>
-
-</body>
-</html>
+      <span style="cursor:pointer; font-weight:bold; color
