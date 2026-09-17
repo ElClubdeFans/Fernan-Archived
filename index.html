@@ -28,20 +28,44 @@
   .quienes-right{flex:0.8}
   .quienes-right video, .quienes-right iframe{width:100%;border:3px solid #1aff00;box-shadow:0 0 12px rgba(26,255,0,0.3)}
 
-  @media(max-width:700px){
-    .main-section{flex-direction:column;align-items:center}
-    .quienes-section{flex-direction:column}
-    .title{font-size:32px}
-    .quienes-title{font-size:28px;text-align:center}
-    .quienes-text{text-align:center}
-  }
   body{
   background-image: url('Fondo.jpg');
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
+  max-width: 950px;
+  margin: 0 auto !important;
+}
+
+/* --- FIX RESPONSIVE CLUB --- */
+@media (min-width: 768px){
+  .menu-arg{
+    grid-template-columns: 1fr 1fr 1fr !important;
+    max-width:700px;
+    margin:20px auto !important;
   }
+}
+
+@media (max-width: 767px){
+  .content{
+    margin:35px 32px 35px 32px !important;
+  }
+  .main-section, .quienes-section{
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .main-section img, .quienes-left, .quienes-right{
+    width:100% !important;
+    flex:none !important;
+  }
+  .title{font-size:32px}
+  .quienes-title{font-size:28px; text-align:center}
+  .quienes-text{text-align:center}
+  .menu-arg{
+    grid-template-columns: 1fr 1fr !important;
+  }
+    }
 </style>
 </head>
 <body>
