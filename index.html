@@ -38,7 +38,7 @@
   margin: 0 auto !important;
 }
 
-/* --- FIX RESPONSIVE CLUB --- */
+/* --- Arreglo Club --- */
 @media (min-width: 768px){
   .menu-arg{
     grid-template-columns: 1fr 1fr 1fr !important;
@@ -205,17 +205,44 @@ setInterval(()=>{
   box-shadow:0 0 15px #00ff00;
   transform:scale(1.02);
 }
-.menu-arg a::before{
-  content:"< ";
-  opacity:0.6;
-}
-.menu-arg a::after{
-  content:" >";
-  opacity:0.6;
-}
-.menu-full{ grid-column: span 2; }
+  .menu-arg{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:10px;
+    margin:20px 10px;
+  }
+  .menu-arg a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border:1px solid #00ff00;
+    background:#000;
+    color:#00ff00;
+    padding:18px 5px !important;
+    min-height:55px;
+    text-align:center;
+    font-family:'Courier New', monospace;
+    font-size:11px !important;
+    text-decoration:none;
+  }
+  .menu-arg a:hover{
+    background:#00ff00;
+    color:#000;
+    box-shadow:0 0 15px #00ff00;
+  }
 </style>
 
+<div class="menu-arg">
+  <a href="videos.html">Videos</a>
+  <a href="publicaciones.html">Publicaciones</a>
+  <a href="integrantes.html">Integrantes</a>
+  <a href="info.html">Info y ARG</a>
+  <a href="tienda.html">Tienda</a>
+  <a href="wiki.html">Wiki</a>
+</div>
+  }
+}
+</style>
 <div class="menu-arg">
   <a href="videos.html">Videos</a>
   <a href="publicaciones.html">Publicaciones</a>
