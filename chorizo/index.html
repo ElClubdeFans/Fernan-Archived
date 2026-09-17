@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>chorizo</title>
+<style>
+  html,body{
+    background:#000;
+    margin:0;
+    height:100%;
+    width:100%;
+  }
+  body{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  video{
+    width:90%;
+    max-width:720px;
+    background:#000;
+    outline:none;
+  }
+  .creditos{
+    margin-top:15px;
+    color:#777;
+    font-size:13px;
+    font-family:Arial, sans-serif;
+    width:90%;
+    max-width:720px;
+    text-align:left;
+  }
+</style>
+</head>
+<body>
+
+  <video controls autoplay playsinline>
+    <source src="./video.mp4" type="video/mp4">
+    Tu navegador no soporta video.
+  </video>
+
+  <div class="creditos">
+    Créditos:
+  </div>
+
+</body>
+</html>
