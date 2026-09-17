@@ -215,6 +215,89 @@ setInterval(()=>{
   <a href="tienda.html">Tienda</a>
   <a href="wiki.html">Wiki</a>
 </div>
+<!-- ARCHIVO - 10 AÑOS -->
+<style>
+.box-arg{
+  border:1px solid #00ff00;
+  background:rgba(0,0,0,0.8);
+  margin:15px 10px;
+  padding:14px;
+  font-family:'Courier New', monospace;
+  color:#00ff00;
+  font-size:11px;
+  line-height:1.4;
+}
+.box-arg h3{
+  margin:0 0 10px 0;
+  font-size:13px;
+  color:#00ff00;
+  text-shadow:0 0 8px #00ff00;
+  border-bottom:1px dashed #00ff00;
+  padding-bottom:5px;
+}
+.img-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:10px 0;
+}
+.img-grid img{
+  width:100%;
+  border:1px solid #00ff00;
+  filter: grayscale(0.3) sepia(0.3) hue-rotate(70deg);
+}
+.age-box{
+  text-align:center;
+  font-size:14px;
+  letter-spacing:3px;
+  padding:20px 10px!important;
+}
+</style>
+
+<div class="box-arg">
+  <h3>>> QUE CHORIZOS ES ESTE CLUB??</h3>
+  No somos una fanpage normal. Somos un bunker.
+  <br><br>
+  Desde el 2016, este club se dedica a una sola mision: que nada de Fernanfloo se pierda. Mientras canales borran videos, mientras Facebook borra grupos, nosotros guardamos todo en este lugar. Somos 6 amigos que crecimos viendo a Fernan y entendimos que su historia es tambien nuestra historia.
+  <br><br>
+  Si estas leyendo esto, ya eres parte del archivo.
+</div>
+
+<div class="box-arg">
+  <h3>>> EVIDENCIA_RECUPERADA [2]</h3>
+  <div class="img-grid">
+    <img src="img1.jpg" alt="evidencia 1">
+    <img src="img2.jpg" alt="evidencia 2">
+  </div>
+  <span style="opacity:0.6;">> Fotos extraidas del servidor antiguo. 2014-2017.</span>
+</div>
+
+<div class="box-arg">
+  <h3>>> PROTOCOLO_DE_AYUDA</h3>
+  ¿Tienes algo que nosotros no tenemos? Un video que ya no esta en YouTube, una captura de un post viejo, un meme del 2014?
+  <br><br>
+  Comunicate con nosotros. Todo aporte es registrado con tu nombre en el Muro de Colaboradores. Nada se olvida aqui.
+  <br><br>
+  <span style="color:#ffff00;">> ADVERTENCIA: Este sitio no es oficial. Es hecho por fans, para fans. Para preservar.</span>
+</div>
+
+<div class="box-arg age-box">
+  <div>>> TIEMPO_EN_LINEA</div>
+  <div style="font-size:22px; margin:10px 0;" id="page-age">10 AÑOS // 120 MESES // 3650 DIAS</div>
+  <div style="opacity:0.7; font-size:10px;">ESTABLECIDO: 11 / 07 / 2016<br>ESTADO: ACTIVO Y VIGILANDO</div>
+</div>
+
+<script>
+  // Calcula edad automatica desde 2016
+  const inicio = new Date('2016-07-11');
+  const hoy = new Date();
+  const diff = hoy - inicio;
+  const dias = Math.floor(diff / (1000*60*60*24));
+  const anios = Math.floor(dias / 365);
+  const meses = anios * 12;
+  document.getElementById('page-age').innerHTML = anios + ' AÑOS // ' + meses + ' MESES // ' + dias + ' DIAS';
+</script>
+  
 <div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 </body>
 </html>
