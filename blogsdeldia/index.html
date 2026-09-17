@@ -59,4 +59,68 @@
     </div>
     <div style="padding:0 12px 12px 12px; font-size:14px;">Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v<br><br><img src="fernan.jpg" style="width:100%; border:1px solid #ccc;"></div>
     <div style="background:#f5f5f5; padding:8px 12px; font-size:13px; border-top:1px solid #ccc;">
-      <span style="cursor:pointer; font-weight:bold; color
+      <span style="cursor:pointer; font-weight:bold; color:#3b5998;" onclick="likeMe('l3')">👍 Me gusta (<b id="l3">2431</b>)</span> &nbsp; <span style="cursor:pointer; font-weight:bold; color:#3b5998;" onclick="toggle('c3')">💬 Comentar (312)</span> <span id="t3" style="float:right; font-size:11px; color:#ff9900;"></span>
+    </div>
+    <div id="c3" style="display:none; padding:10px; background:#fff; border-top:1px solid #eee; font-size:12px;">
+      <div><b>curly_lover:</b> te quedo epico fer!!!</div><div style="margin-top:5px;"><b>gamer_sv:</b> cuando lo subes bro?</div><div style="margin-top:5px;"><b>sofi_fernan:</b> sale curly? :D</div>
+      <input style="width:95%; padding:6px; margin-top:8px; border:1px solid #ccc; background:#ffffcc;" placeholder="Escribe un comentario (solo tu lo veras)..." onkeydown="if(event.key==='Enter') add(this,'nc3')">
+      <div id="nc3"></div>
+    </div>
+  </div>
+
+  <!-- POST 4 -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=12" style="width:50px; height:50px; border-radius:50%;">
+      <div><b>sofi_xD_2000</b> <span style="color:#888; font-size:12px;">@sofi_cute</span><br><span style="font-size:11px; color:#999;">Ayer · desde el colegio</span></div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">Hoy fue un dia horrible en el colegio, nos dejaron mucha tarea de matematicas y no entiendo nada :( alguien me ayuda??</div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l4')"><b>👍 Me gusta (<span id="l4">54</span>)</b></span> &nbsp; <span style="cursor:pointer; color:#3b5998; font-weight:bold;" onclick="toggle('c4')">💬 Comentar (9)</span>
+    </div>
+    <div id="c4" style="display:none; padding:10px; background:#fff; border-top:1px solid #eee; font-size:12px;">
+      <div><b>xX_MatePro_Xx:</b> yo te ayudo sofi mandame inbox</div>
+      <input style="width:95%; padding:6px; margin-top:8px; border:1px solid #ccc;" placeholder="..." onkeydown="if(event.key==='Enter') add(this,'nc4')"><div id="nc4"></div>
+    </div>
+  </div>
+
+  <!-- POST 5 -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=15" style="width:50px; height:50px; border-radius:50%;">
+      <div><b>ElProGamer_SV</b> <span style="color:#888; font-size:12px;">@pro_gamer_sv</span><br><span style="font-size:11px; color:#999;">Hace 1 dia</span></div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">Alguien mas esta jugando GTA V?? lo acaban de sacar para PC y esta epico</div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l5')"><b>👍 Me gusta (<span id="l5">132</span>)</b></span> &nbsp; <span style="cursor:pointer; color:#3b5998; font-weight:bold;" onclick="toggle('c5')">💬 Comentar (28)</span>
+    </div>
+    <div id="c5" style="display:none; padding:10px; background:#fff; border-top:1px solid #eee; font-size:12px;">
+      <div><b>Trevor_Philips:</b> yo lo tengo, juguemos</div>
+      <input style="width:95%; padding:6px; margin-top:8px; border:1px solid #ccc;" placeholder="..." onkeydown="if(event.key==='Enter') add(this,'nc5')"><div id="nc5"></div>
+    </div>
+  </div>
+
+  <center style="margin:25px 0; font-size:11px; color:#999; border-top:2px dashed #ff9900; padding:15px;">
+    BlogsDelDia.org © 2012-2015<br>Creado por Carlitos - Visitante N° <span style="background:#000; color:#0f0; padding:2px 5px; font-family:monospace;">0045829</span><br>19476
+  </center>
+
+</div>
+
+<script>
+function toggle(id){ var e=document.getElementById(id); e.style.display = e.style.display==='none' ? 'block' : 'none'; }
+function likeMe(id){
+  const el=document.getElementById(id);
+  let num=parseInt(el.textContent);
+  if(el.dataset.liked!=='1'){ el.textContent=num+1; el.dataset.liked='1'; if(id==='l3') document.getElementById('t3').textContent='¡Te gusta! (solo tu)'; }
+  else { el.textContent=num-1; el.dataset.liked='0'; if(id==='l3') document.getElementById('t3').textContent=''; }
+}
+function add(input, dest){
+  if(!input.value.trim()) return;
+  var d=document.createElement('div'); d.style.marginTop='6px'; d.style.fontSize='12px';
+  d.innerHTML='<b>Tu:</b> '+input.value+' <span style="color:#ff9900; font-size:10px;">(solo tu)</span>';
+  document.getElementById(dest).appendChild(d); input.value='';
+}
+</script>
+
+</body>
+  </html>
