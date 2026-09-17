@@ -177,7 +177,8 @@ setInterval(()=>{
   el.style.opacity = el.style.opacity == "0.8" ? "0.4" : "0.8";
 }, 700);
 </script>
-<!-- MENU PRINCIPAL DEL CLUB -->
+
+  <!-- MENU PRINCIPAL DEL CLUB -->
 <style>
 .menu-arg{
   display:grid;
@@ -186,50 +187,24 @@ setInterval(()=>{
   margin:20px 10px;
 }
 .menu-arg a{
-  display:block;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   border:1px solid #00ff00;
   background:#000;
   color:#00ff00;
-  padding:14px 10px;
+  padding:18px 5px !important;
+  min-height:55px;
   text-align:center;
   font-family:'Courier New', monospace;
-  font-size:13px;
+  font-size:11px !important;
   text-decoration:none;
-  letter-spacing:1px;
-  transition:0.2s;
-  position:relative;
 }
 .menu-arg a:hover{
   background:#00ff00;
   color:#000;
   box-shadow:0 0 15px #00ff00;
-  transform:scale(1.02);
 }
-  .menu-arg{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap:10px;
-    margin:20px 10px;
-  }
-  .menu-arg a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border:1px solid #00ff00;
-    background:#000;
-    color:#00ff00;
-    padding:18px 5px !important;
-    min-height:55px;
-    text-align:center;
-    font-family:'Courier New', monospace;
-    font-size:11px !important;
-    text-decoration:none;
-  }
-  .menu-arg a:hover{
-    background:#00ff00;
-    color:#000;
-    box-shadow:0 0 15px #00ff00;
-  }
 </style>
 
 <div class="menu-arg">
@@ -237,17 +212,6 @@ setInterval(()=>{
   <a href="publicaciones.html">Publicaciones</a>
   <a href="integrantes.html">Integrantes</a>
   <a href="info.html">Info y ARG</a>
-  <a href="tienda.html">Tienda</a>
-  <a href="wiki.html">Wiki</a>
-</div>
-  }
-}
-</style>
-<div class="menu-arg">
-  <a href="videos.html">Videos</a>
-  <a href="publicaciones.html">Publicaciones</a>
-  <a href="integrantes.html">Integrantes del Club</a>
-  <a href="info.html">Información y ARG</a>
   <a href="tienda.html">Tienda</a>
   <a href="wiki.html">Wiki</a>
 </div>
