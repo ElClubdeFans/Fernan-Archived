@@ -101,7 +101,31 @@
       
     </div>
   </div>
+<div style="margin-top:15px; border:1px solid #00ff00; padding:8px; background:rgba(0,255,0,0.05);">
+  <p id="otro" style="color:#00ff00; font-size:11px; font-family:'Courier New', monospace; opacity:0.8; margin:0; text-align:left; letter-spacing:1px;">
+    ● 1 visitante más viendo esto ahora...
+  </p>
+</div>
 
+<script>
+// Conectados en este momento
+fetch('https://ipapi.co/json/')
+  .then(r => r.json())
+  .then(d => {
+    let ipCorta = d.ip ? d.ip.split('.').slice(0,2).join('.') + '.xxx.xxx' : '192.168.xxx.xxx';
+    let pais = d.country_code || 'SV';
+    document.getElementById("otro").innerHTML = `● 1 visitante más viendo esto ahora - IP: ${ipCorta} [${pais}] - En línea`;
+  })
+  .catch(()=>{
+    document.getElementById("otro").innerHTML = `● 1 visitante más viendo esto ahora - IP: 190.12.xxx.xxx [SV] - En línea`;
+  });
+
+// Hace que el puntito parpadee como si fuera real
+setInterval(()=>{
+  let el = document.getElementById("otro");
+  el.style.opacity = el.style.opacity == "0.8" ? "0.3" : "0.8";
+}, 900);
+</script>
 <div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 </body>
 </html>
