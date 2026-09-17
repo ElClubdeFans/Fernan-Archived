@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
+body{background:#f5f5f5}
+.header{background:#fff;padding:10px;display:flex;gap:10px;align-items:center}
+.logo-box{background:#000;color:#0f0;padding:8px;font-size:12px;font-weight:bold}
+.search{flex:1;background:#eee;border:none;padding:8px;border-radius:20px}
+.cart-btn{background:#000;color:#fff;border:none;padding:8px 12px;border-radius:20px}
+.banner{background:#ff7701;color:#fff;text-align:center;padding:6px;font-size:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}
+.card{background:#fff;border-radius:8px;overflow:hidden}
+.card img{width:100%;aspect-ratio:1;object-fit:cover;background:#ddd}
+.info{padding:8px}
+.title{font-size:12px;height:28px;overflow:hidden}
+.price{color:red;font-weight:bold}
+.old{color:#999;font-size:11px;text-decoration:line-through;margin-left:4px}
+.btn-add{width:100%;background:#000;color:#fff;border:none;padding:6px;border-radius:20px;margin-top:6px;font-size:12px}
+#cartDrawer{position:fixed;top:0;right:-100%;width:80%;height:100%;background:#fff;z-index:999;transition:0.3s;padding:15px}
+#cartDrawer.open{right:0}
+#overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;z-index:998}
+#overlay.show{display:block}
+</style>
+</head>
+<body>
+<div class="banner">ENVIO GRATIS 90% OFF</div>
+<div class="header">
+<div class="logo-box">TU LOGO</div>
+<input class="search" placeholder="Buscar...">
+<button class="cart-btn" onclick="openCart()">CARRITO <span id="cartCount">0</span></button>
+</div>
+<div class="grid" id="grid"></div>
+<div id="overlay" onclick="closeCart()"></div>
+<div id="cartDrawer">
+<h3>Carrito <span onclick="closeCart()" style="float:right;cursor:pointer">X</span></h3>
+<div id="cartItems" style="margin-top:15px"></div>
+<div id="cartTotal" style="margin-top:10px;font-weight:bold"></div>
+<button style="width:100%;margin-top:10px;background:#ff7701;color:#fff;border:none;padding:12px;border-radius:8px" onclick="location.href='../chorizo/'">COMPRAR</button>
+</div>
+<script>
+const productos=[
+{id:1,nombre:"Lentes Curly Power",precio:12.99,precioOld:59.99,img:"https://via.placeholder.com/300?text=LENTES",vendidos:"2.3k vendidos"},
+{id:2,nombre:"Lata Chorizo Energy",precio:4.5,precioOld:15,img:"https://via.placeholder.com/300?text=CHORIZO",vendidos:"8.1k vendidos"},
+{id:3,nombre:"USB Perdido 32GB",precio:29.99,precioOld:89.99,img:"https://via.placeholder.com/300?text=USB",vendidos:"666 vendidos"},
+{id:4,nombre:"Camiseta Chorizo",precio:9.99,precioOld:34.99,img:"https://via.placeholder.com/300?text=CAMISETA",vendidos:"5k vendidos"},
+{id:5,nombre:"Gorra Club Fans",precio:7.5,precioOld:22,img:"https://via.placeholder.com/300?text=GORRA",vendidos:"1k vendidos"},
+{id:6,nombre:"Peluca Curly",precio:18,precioOld:45,img:"https://via.placeholder.com/300?text=PELUCA",vendidos:"3k vendidos"},
+{id:7,nombre:"DVD Perdidos",precio:25,precioOld:70,img:"https://via.placeholder.com/300?text=DVD",vendidos:"432 vendidos"},
+{id:8,nombre:"Llavero Chorizo",precio:2.99,precioOld:9.99,img:"https://via.placeholder.com/300?text=LLAVERO",vendidos:"10k vendidos"},
+{id:9,nombre:"Poster Lapida RIP",precio:6.66,precioOld:19.99,img:"https://via.placeholder.com/300?text=LAPIDA",vendidos:"666 vendidos"},
+{id:10,nombre:"Cuaderno Secretos",precio:11,precioOld:30,img:"https://via.placeholder.com/300?text=CUADERNO",vendidos:"890 vendidos"},
+{id:11,nombre:"Taza Magica",precio:8.99,precioOld:24.99,img:"https://via.placeholder.com/300?text=TAZA",vendidos:"2k vendidos"},
+{id:12,nombre:"Pack Stickers",precio:3.5,precioOld:12.99,img:"https://via.placeholder.com/300?text=STICKERS",vendidos:"7k vendidos"},
+{id:13,nombre:"Audifonos Gaming",precio:33,precioOld:99,img:"https://via.placeholder.com/300?text=AUDIFONOS",vendidos:"1.5k vendidos"},
+{id:14,nombre:"Caja Misteriosa",precio:15.99,precioOld:49.99,img:"https://via.placeholder.com/300?text=CAJA",vendidos:"2026 vendidos"},
+{id:15,nombre:"Figura Fernan",precio:22.5,precioOld:60,img:"https://via.placeholder.com/300?text=FIGURA",vendidos:"3k vendidos"},
+{id:16,nombre:"Membresia Dorada",precio:1,precioOld:100,img:"https://via.placeholder.com/300?text=GOLD",vendidos:"10k vendidos"}
+];
+let carrito=[];
+const grid=document.getElementById("grid");
+for(let i=0;i<productos.length;i++){
+let p=productos[i];
+let d=document.createElement("div");
+d.className="card";
+d.innerHTML="<img src='"+p.img+"'><div class='info'><div class='title'>"+p.nombre+"</div><div><span class='price'>$"+p.precio+"</span><span class='old'>$"+p.precioOld+"</span></div><div style='font-size:10px'>"+p.vendidos+"</div><button class='btn-add' onclick='addCart("+p.id+")'>Anadir</button></div>";
+grid.appendChild(d);
+}
+function addCart(id){
+let prod=null;
+for(let j=0;j<productos.length;j++){if(productos[j].id===id){prod=productos[j]}}
+carrito.push(prod);
+document.getElementById("cartCount").innerText=carrito.length;
+renderCart();
+openCart();
+}
+function renderCart(){
+let c=document.getElementById("cartItems");
+c.innerHTML="";
+let total=0;
+for(let k=0;k<carrito.length;k++){
+total+=carrito[k].precio;
+c.innerHTML+="<div style='display:flex;gap:8px;border-bottom:1px solid #eee;padding:6px'><img src='"+carrito[k].img+"' style='width:40px;height:40px'><div style='font-size:12px'>"+carrito[k].nombre+"<br>$"+carrito[k].precio+"</div></div>";
+}
+document.getElementById("cartTotal").innerText="Total: $"+total.toFixed(2);
+}
+function openCart(){document.getElementById("cartDrawer").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("cartDrawer").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+</script>
+</body>
+</html>
