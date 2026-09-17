@@ -101,31 +101,59 @@
       
     </div>
   </div>
-<div style="margin-top:15px; border:1px solid #00ff00; padding:8px; background:rgba(0,255,0,0.05);">
-  <p id="otro" style="color:#00ff00; font-size:11px; font-family:'Courier New', monospace; opacity:0.8; margin:0; text-align:left; letter-spacing:1px;">
-    ● 1 visitante más viendo esto ahora...
+<!-- CONTADOR - EL CLUB TE OBSERVA -->
+<div style="margin: 20px 10px 0 10px; border:1px solid #00ff00; padding:8px 10px; background:rgba(0,255,0,0.05); font-family:'Courier New', monospace;">
+  <p id="otro" style="color:#00ff00; font-size:11px; margin:0; text-align:left;">
+    ● Conectando con el club...
   </p>
+  <p id="log" style="color:#00ff00; font-size:9px; margin:3px 0 0 0; opacity:0.5; text-align:left; height:10px;"></p>
 </div>
 
 <script>
-// Conectados en este momento
-fetch('https://ipapi.co/json/')
-  .then(r => r.json())
-  .then(d => {
-    let ipCorta = d.ip ? d.ip.split('.').slice(0,2).join('.') + '.xxx.xxx' : '192.168.xxx.xxx';
-    let pais = d.country_code || 'SV';
-    document.getElementById("otro").innerHTML = `● 1 visitante más viendo esto ahora - IP: ${ipCorta} [${pais}] - En línea`;
-  })
-  .catch(()=>{
-    document.getElementById("otro").innerHTML = `● 1 visitante más viendo esto ahora - IP: 190.12.xxx.xxx [SV] - En línea`;
-  });
+let count = Math.floor(Math.random() * 15) + 1; // empieza entre 1 y 15
+const el = document.getElementById("otro");
+const log = document.getElementById("log");
 
-// Hace que el puntito parpadee como si fuera real
+function actualizarContador(){
+  let cambio = Math.floor(Math.random() * 5) - 2; // -2 a +2
+  // a veces un salto grande XD
+  if(Math.random() < 0.15){
+    cambio = Math.floor(Math.random() * 40) - 10; // salto de -10 a +30
+  }
+  count += cambio;
+  if(count < 1) count = 1;
+  if(count > 234) count = 234;
+
+  let ipFake = `${Math.floor(Math.random()*200)+10}.${Math.floor(Math.random()*99)}.${Math.floor(Math.random()*999)}.xxx`;
+  
+  el.innerHTML = `● ${count} ${count==1?'visitante en línea':'visitantes en línea'} - IP: ${ipFake} [SV]`;
+
+  // log de que alguien entra/sale
+  if(cambio > 0 && Math.random() < 0.6){
+    log.innerHTML = `> +${cambio} se unió al club`;
+  } else if(cambio < 0 && Math.random() < 0.6){
+    log.innerHTML = `> ${cambio} se desconectó`;
+  } else {
+    log.innerHTML = `> sincronizando...`;
+  }
+  setTimeout(()=>{ log.innerHTML = ""; }, 2500);
+}
+
+// inicia
+setTimeout(()=>{
+  actualizarContador();
+  // en línea ahora:
+  setInterval(()=>{
+    actualizarContador();
+  }, Math.floor(Math.random()*4000)+2000);
+}, 1200);
+
+// parpadeo del puntito
 setInterval(()=>{
-  let el = document.getElementById("otro");
-  el.style.opacity = el.style.opacity == "0.8" ? "0.3" : "0.8";
-}, 900);
+  el.style.opacity = el.style.opacity == "0.8" ? "0.4" : "0.8";
+}, 700);
 </script>
+
 <div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 </body>
 </html>
