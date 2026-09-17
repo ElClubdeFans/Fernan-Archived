@@ -153,7 +153,53 @@ setInterval(()=>{
   el.style.opacity = el.style.opacity == "0.8" ? "0.4" : "0.8";
 }, 700);
 </script>
+<!-- MENU PRINCIPAL DEL CLUB -->
+<style>
+.menu-arg{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+  margin:20px 10px;
+}
+.menu-arg a{
+  display:block;
+  border:1px solid #00ff00;
+  background:#000;
+  color:#00ff00;
+  padding:14px 10px;
+  text-align:center;
+  font-family:'Courier New', monospace;
+  font-size:13px;
+  text-decoration:none;
+  letter-spacing:1px;
+  transition:0.2s;
+  position:relative;
+}
+.menu-arg a:hover{
+  background:#00ff00;
+  color:#000;
+  box-shadow:0 0 15px #00ff00;
+  transform:scale(1.02);
+}
+.menu-arg a::before{
+  content:"< ";
+  opacity:0.6;
+}
+.menu-arg a::after{
+  content:" >";
+  opacity:0.6;
+}
+.menu-full{ grid-column: span 2; }
+</style>
 
+<div class="menu-arg">
+  <a href="videos.html">Videos</a>
+  <a href="publicaciones.html">Publicaciones</a>
+  <a href="integrantes.html">Integrantes del Club</a>
+  <a href="info.html">Información y ARG</a>
+  <a href="tienda.html">Tienda</a>
+  <a href="wiki.html">Wiki</a>
+</div>
 <div class="border-bottom">FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO FERNANFLOO</div>
 </body>
 </html>
