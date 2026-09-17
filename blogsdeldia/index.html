@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BlogsDelDia.org - Los mejores blogs</title>
+</head>
+<body style="margin:0; background:#ffffff; font-family: Arial, Helvetica, sans-serif;">
 
+<!-- LOGO FEO CENTRADO COMO LO HACIAN ANTES -->
+<center style="background:#fff; padding:10px; border-bottom:3px solid #ff9900;">
+  <img src="logo.png" style="width:100%; max-width:400px;">
+  <br>
+  <div style="background:#ff9900; color:#fff; font-size:12px; padding:4px; margin-top:5px;">
+    <marquee>Bienvenidos a BlogsDelDia.org - La pagina que recopila los mejores blogs del dia!!! - Creado por Carlitos123 - 2012</marquee>
+  </div>
+</center>
+
+<div style="max-width:650px; margin:0 auto; background:#fff; padding:10px;">
+
+  <!-- POST TIPO FACEBOOK 2012 -->
+  <div style="border:2px solid #cccccc; margin-top:20px; padding:0;">
+    <div style="background:#eeeeee; padding:8px; border-bottom:1px solid #ccc; font-size:12px; color:#666;">
+      Publicado el 15/08/2015 por <b>Admin</b> en Gaming
+    </div>
+    
+    <div style="padding:12px; display:flex; gap:10px;">
+      <img src="fernan.jpg" style="width:55px; height:55px; border-radius:50%; border:2px solid #ff9900; cursor:pointer;" onclick="location.href='fernanfloo/'">
+      <div>
+        <div style="font-size:16px;">
+          <b style="color:#cc0000; cursor:pointer;" onclick="location.href='fernanfloo/'">Fernanfloo</b> 
+          <span style="background:#1d9bf0; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px;">✔ Verificado</span>
+          <span style="color:#999; font-size:12px;">@fernanfloo</span>
+        </div>
+        <div style="font-size:11px; color:#999;">Hace 2 horas · desde El Salvador</div>
+      </div>
+    </div>
+
+    <div style="padding:0 12px 12px 12px; font-size:14px; line-height:1.5;">
+      Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v
+      <br><br>
+      <img src="fernan.jpg" style="width:100%; border:1px solid #ccc;">
+    </div>
+
+    <div style="background:#f5f5f5; border-top:1px solid #ccc; padding:8px 12px; font-size:13px;">
+      <a href="#" id="likeBtn" onclick="darLike(); return false;" style="color:#3b5998; text-decoration:none; font-weight:bold;">👍 Me gusta (<span id="likes">2,431</span>)</a> &nbsp;&nbsp;
+      <a href="#" onclick="document.getElementById('coments').style.display='block'; return false;" style="color:#3b5998; text-decoration:none; font-weight:bold;">💬 Comentar (312)</a>
+      <span style="float:right; color:#999; font-size:11px;" id="tu-like"></span>
+    </div>
+
+    <div id="coments" style="display:none; background:#fff; padding:12px; border-top:1px solid #eee;">
+      <div style="font-size:12px; margin-bottom:8px;"><img src="https://i.imgur.com/8Km9tLL.png" style="width:25px; height:25px; border-radius:50%; vertical-align:middle;"> <b>Maria_Gamer:</b> te quedo epico fer!!!</div>
+      <div style="font-size:12px; margin-bottom:8px;"><img src="https://i.imgur.com/8Km9tLL.png" style="width:25px; height:25px; border-radius:50%; vertical-align:middle;"> <b>Juan_Sv:</b> saludos desde san salvador</div>
+      <input id="miComent" placeholder="Escribe un comentario..." style="width:95%; padding:7px; border:1px solid #ccc; margin-top:10px;" onkeydown="if(event.key==='Enter'){comentar(this.value); this.value=''}">
+      <div id="misComents"></div>
+    </div>
+  </div>
+
+  <center style="margin-top:30px; font-size:11px; color:#999; border-top:2px dashed #ff9900; padding-top:10px;">
+    BlogsDelDia.org © 2012-2015<br>
+    Creado con mucho esfuerzo por Carlitos - Visitante N° <span style="background:#000; color:#0f0; padding:2px 5px; font-family:monospace;">0045829</span><br>
+    <img src="https://www.hitwebcounter.com/counter/counter.php?page=12345&style=0006&nbdigits=5&type=page&initCount=0" style="margin-top:5px;"><br><br>
+    <a href="../index.html" style="display:none;">.</a>
+  </center>
+
+</div>
+
+<script>
+let liked = false;
+let totalLikes = 2431;
+function darLike(){
+  const el = document.getElementById('likes');
+  const tu = document.getElementById('tu-like');
+  if(!liked){
+    totalLikes++;
+    el.textContent = totalLikes.toLocaleString();
+    tu.textContent = '¡Te gusta esto! (solo tu lo ves)';
+    liked = true;
+    document.getElementById('likeBtn').style.color = '#ff9900';
+  } else {
+    totalLikes--;
+    el.textContent = totalLikes.toLocaleString();
+    tu.textContent = '';
+    liked = false;
+    document.getElementById('likeBtn').style.color = '#3b5998';
+  }
+}
+function comentar(text){
+  if(!text) return;
+  const div = document.createElement('div');
+  div.style.fontSize='12px';
+  div.style.marginTop='8px';
+  div.innerHTML = '<b>Tu:</b> ' + text + ' <span style="color:#ff9900; font-size:10px;">(solo visible para ti)</span>';
+  document.getElementById('misComents').appendChild(div);
+}
+</script>
+
+</body>
+  </html>
