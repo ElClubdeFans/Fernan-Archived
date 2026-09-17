@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Test Forever Alone - Resultado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  body{background:#d8dfea; font-family: Tahoma, Verdana; margin:0;}
+  .container{max-width:480px; margin:15px auto; background:#fff; border:1px solid #3b5998;}
+  .top{ background:#3b5998; color:white; padding:8px; font-weight:bold; font-size:13px; }
+  .body{padding:15px;}
+  .q{display:none;}
+  .q.active{display:block;}
+  button{width:100%; text-align:left; background:#edeff4; border:1px solid #b7c0d8; padding:10px; margin:5px 0; cursor:pointer; font-size:13px;}
+  button:hover{background:#d8dfea;}
+  .bar{height:12px; background:#ccc; margin-bottom:10px;}
+  .fill{height:12px; background:#3b5998; width:0%; transition:0.5s;}
+  #resultado{display:none; text-align:center;}
+  #resultado h1{color:#ff0000; font-size:28px; text-transform:uppercase;}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="top">Test de Forever Alone - ¿Estarás siempre solo?</div>
+  <div class="body">
+    <div class="bar"><div class="fill" id="fill"></div></div>
+    <small id="progreso">Pregunta 1 de 5</small>
+
+    <!-- P1 -->
+    <div class="q active" id="q1">
+      <p><b>1. Te escribe tu crush, ¿qué le respondes?</b></p>
+      <button onclick="next(2)">a) Le dejo en visto para hacerme el interesante</button>
+      <button onclick="next(2)">b) Le respondo a los 3 días con un "ola k ase"</button>
+      <button onclick="next(2)">c) Le mando una biblia de 5 párrafos y me deja en visto</button>
+    </div>
+
+    <!-- P2 -->
+    <div class="q" id="q2">
+      <p><b>2. Es 14 de febrero, tú estás...</b></p>
+      <button onclick="next(3)">a) Con mi novia (mentira)</button>
+      <button onclick="next(3)">b) Viendo memes de San Valentín llorando</button>
+      <button onclick="next(3)">c) Felicitando a todos menos a mí me felicitan</button>
+    </div>
+
+    <!-- P3 -->
+    <div class="q" id="q3">
+      <p><b>3. ¿Cuándo fue la última vez que te agarraron la mano?</b></p>
+      <button onclick="next(4)">a) Mi mamá cuando cruzaba la calle en 2008</button>
+      <button onclick="next(4)">b) El profe para quitarme el celular</button>
+      <button onclick="next(4)">c) Nunca, soy nivel Dios del Forever Alone</button>
+    </div>
+
+    <!-- P4 -->
+    <div class="q" id="q4">
+      <p><b>4. Si te dicen "te quiero" tú piensas que...</b></p>
+      <button onclick="next(5)">a) Se equivocó de chat</button>
+      <button onclick="next(5)">b) Es una broma de mis amigos</button>
+      <button onclick="next(5)">c) Me está troleando el del ciber</button>
+    </div>
+
+    <!-- P5 -->
+    <div class="q" id="q5">
+      <p><b>5. ¿Por qué hiciste este test?</b></p>
+      <button onclick="final()">a) Para confirmar lo que ya sabía</button>
+      <button onclick="final()">b) Porque estoy más solo que la una</button>
+      <button onclick="final()">c) Para ver si aún tengo esperanza (spoiler: no)</button>
+    </div>
+
+    <!-- RESULTADO -->
+    <div id="resultado">
+      <p>Calculando tu nivel de soledad...</p>
+      <h1>Si, siempre estarás solo</h1>
+      <!-- AQUÍ VA TU MEME -->
+      <img src="forever_meme.jpg" style="width:100%; max-width:350px; border:3px solid #000;">
+      <p><b>100% Forever Alone certificado.</b><br>Ni con lupa encuentras pareja, bro.</p>
+      <button onclick="location.href='../'" style="text-align:center; background:#3b5998; color:white; font-weight:bold;">VOLVER AL BLOG</button>
+      <br><br>
+      <small>Comparte este test en tu muro si eres valiente xd</small>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function next(n){
+  document.querySelectorAll('.q').forEach(q=>q.classList.remove('active'));
+  document.getElementById('q'+n).classList.add('active');
+  document.getElementById('fill').style.width = ((n-1)*20)+'%';
+  document.getElementById('progreso').innerText = 'Pregunta '+n+' de 5';
+}
+function final(){
+  document.querySelectorAll('.q').forEach(q=>q.style.display='none');
+  document.getElementById('progreso').style.display='none';
+  document.getElementById('fill').style.width='100%';
+  
+  setTimeout(()=>{
+    document.getElementById('resultado').style.display='block';
+  }, 1200);
+}
+</script>
+
+</body>
+</html>
