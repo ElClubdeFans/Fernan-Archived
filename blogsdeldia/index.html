@@ -5,95 +5,131 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BlogsDelDia.org - Los mejores blogs</title>
 </head>
-<body style="margin:0; background:#ffffff; font-family: Arial, Helvetica, sans-serif;">
+<body style="margin:0; background:#fff; font-family: Arial;">
 
-<!-- LOGO-->
 <center style="background:#fff; padding:10px; border-bottom:3px solid #ff9900;">
-  <img src="logo.png" style="width:100%; max-width:400px;">
-  <br>
+  <img src="logo.png" style="width:100%; max-width:380px;">
   <div style="background:#ff9900; color:#fff; font-size:12px; padding:4px; margin-top:5px;">
-    <marquee>Bienvenidos a BlogsDelDia.org - La pagina que recopila los mejores blogs del dia!!! - Creado por Carlitos123 - 2012</marquee>
+    <marquee>Bienvenidos a BlogsDelDia.org - La pagina que recopila los mejores blogs del dia!!! - Creado por Carlitos123 - 2012 - Visitas: 45829</marquee>
   </div>
 </center>
 
-<div style="max-width:650px; margin:0 auto; background:#fff; padding:10px;">
+<div style="max-width:650px; margin:0 auto; background:#fff;">
 
-  <!-- POST TIPO FACEBOOK 2012 -->
-  <div style="border:2px solid #cccccc; margin-top:20px; padding:0;">
-    <div style="background:#eeeeee; padding:8px; border-bottom:1px solid #ccc; font-size:12px; color:#666;">
-      Publicado el 15/08/2015 por <b>Admin</b> en Gaming
-    </div>
-    
-    <div style="padding:12px; display:flex; gap:10px;">
-      <img src="fernan.jpg" style="width:55px; height:55px; border-radius:50%; border:2px solid #ff9900; cursor:pointer;" onclick="location.href='fernanfloo/'">
+  <!-- POST 1 - GAMER 2012 -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=8" style="width:50px; height:50px; border-radius:50%;">
       <div>
-        <div style="font-size:16px;">
-          <b style="color:#cc0000; cursor:pointer;" onclick="location.href='fernanfloo/'">Fernanfloo</b> 
-          <span style="background:#1d9bf0; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px;">✔ Verificado</span>
-          <span style="color:#999; font-size:12px;">@fernanfloo</span>
-        </div>
-        <div style="font-size:11px; color:#999;">Hace 2 horas · desde El Salvador</div>
+        <b style="color:#000;">xX_DarkSasuke_Xx</b> <span style="color:#888; font-size:12px;">@sasuke_pro_2001</span><br>
+        <span style="font-size:11px; color:#999;">Hace 5 horas · desde su cuarto</span>
       </div>
     </div>
-
-    <div style="padding:0 12px 12px 12px; font-size:14px; line-height:1.5;">
-      Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v
-      <br><br>
-      <img src="fernan.jpg" style="width:100%; border:1px solid #ccc;">
+    <div style="padding:0 12px 12px 12px; font-size:14px;">
+      Hoy me quede jugando Minecraft hasta las 3am y mi mama me regaño xD pero valio la pena hice una casa de diamante gigante :v alguien quiere jugar en mi server hamachi?? dejen su ip
+      <br><br><img src="https://i.imgur.com/CzXTtJV.jpg" style="width:100%; border:1px solid #ccc;">
     </div>
-
-    <div style="background:#f5f5f5; border-top:1px solid #ccc; padding:8px 12px; font-size:13px;">
-      <a href="#" id="likeBtn" onclick="darLike(); return false;" style="color:#3b5998; text-decoration:none; font-weight:bold;">👍 Me gusta (<span id="likes">2,431</span>)</a> &nbsp;&nbsp;
-      <a href="#" onclick="document.getElementById('coments').style.display='block'; return false;" style="color:#3b5998; text-decoration:none; font-weight:bold;">💬 Comentar (312)</a>
-      <span style="float:right; color:#999; font-size:11px;" id="tu-like"></span>
-    </div>
-
-    <div id="coments" style="display:none; background:#fff; padding:12px; border-top:1px solid #eee;">
-      <div style="font-size:12px; margin-bottom:8px;"><img src="https://i.imgur.com/8Km9tLL.png" style="width:25px; height:25px; border-radius:50%; vertical-align:middle;"> <b>Maria_Gamer:</b> te quedo epico fer!!!</div>
-      <div style="font-size:12px; margin-bottom:8px;"><img src="https://i.imgur.com/8Km9tLL.png" style="width:25px; height:25px; border-radius:50%; vertical-align:middle;"> <b>Juan_Sv:</b> saludos desde san salvador</div>
-      <input id="miComent" placeholder="Escribe un comentario..." style="width:95%; padding:7px; border:1px solid #ccc; margin-top:10px;" onkeydown="if(event.key==='Enter'){comentar(this.value); this.value=''}">
-      <div id="misComents"></div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l1')">👍 Me gusta (<b id="l1">89</b>)</span> &nbsp; <span>💬 Comentar (12)</span>
     </div>
   </div>
 
-  <center style="margin-top:30px; font-size:11px; color:#999; border-top:2px dashed #ff9900; padding-top:10px;">
-    BlogsDelDia.org © 2012-2015<br>
-    Creado con mucho esfuerzo por Carlitos - Visitante N° <span style="background:#000; color:#0f0; padding:2px 5px; font-family:monospace;">0045829</span><br>
-    <img src="https://www.hitwebcounter.com/counter/counter.php?page=12345&style=0006&nbdigits=5&type=page&initCount=0" style="margin-top:5px;"><br><br>
-    <a href="../index.html" style="display:none;">.</a>
+  <!-- POST 2 - GATITOS -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=5" style="width:50px; height:50px; border-radius:50%;">
+      <div>
+        <b style="color:#000;">GatitaMiau2012</b> <span style="color:#888; font-size:12px;">@mishi_lover</span><br>
+        <span style="font-size:11px; color:#999;">Hace 8 horas · desde mi casa</span>
+      </div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">
+      Miren a mi gatito se llama Michifus esta dormido todo el dia jajaja es tan bonito lo amo mucho <3 le compre un sombrerito
+      <br><br><img src="https://i.imgur.com/7bHv6cO.jpg" style="width:100%; border:1px solid #ccc;">
+    </div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l2')">👍 Me gusta (<b id="l2">210</b>)</span> &nbsp; <span>💬 Comentar (45)</span>
+    </div>
+  </div>
+
+  <!-- POST 3 - FERNANFLOO PERDIDO ENTRE TODOS -->
+  <div style="border:2px solid #ff9900; margin:15px 8px; padding:0; background:#fffbf0;">
+    <div style="background:#ff9900; color:#fff; font-size:10px; padding:3px 8px;">⭐ POST DESTACADO DEL DIA</div>
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="fernan.jpg" style="width:50px; height:50px; border-radius:50%; border:2px solid #ff9900; cursor:pointer;" onclick="location.href='fernanfloo/'">
+      <div>
+        <b style="color:#cc0000; cursor:pointer;" onclick="location.href='fernanfloo/'">Fernanfloo</b> 
+        <span style="background:#1d9bf0; color:#fff; font-size:10px; padding:1px 4px; border-radius:3px;">✔ Verificado</span>
+        <span style="color:#888; font-size:12px;">@fernanfloo</span><br>
+        <span style="font-size:11px; color:#999;">Hace 2 horas · desde El Salvador</span>
+      </div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">
+      Hola amigos de BlogsDelDia!!! Hoy termine mi nueva animacion creo que es la mejor que he hecho hasta ahora xD ¿Adivinan de que es? Pista: sale curly :v
+      <br><br><img src="fernan.jpg" style="width:100%; border:1px solid #ccc;">
+    </div>
+    <div style="background:#f5f5f5; padding:8px 12px; font-size:13px; border-top:1px solid #ccc;">
+      <span id="b3" style="cursor:pointer; font-weight:bold; color:#3b5998;" onclick="likeMe('l3')">👍 Me gusta (<b id="l3">2431</b>)</span> &nbsp; <span style="font-weight:bold; color:#3b5998;">💬 Comentar (312)</span>
+      <span id="t3" style="float:right; font-size:11px; color:#ff9900;"></span>
+    </div>
+  </div>
+
+  <!-- POST 4 - RANDOM DIA -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=12" style="width:50px; height:50px; border-radius:50%;">
+      <div>
+        <b>sofi_xD_2000</b> <span style="color:#888; font-size:12px;">@sofi_cute</span><br>
+        <span style="font-size:11px; color:#999;">Ayer · desde el colegio</span>
+      </div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">
+      Hoy fue un dia horrible en el colegio, nos dejaron mucha tarea de matematicas y no entiendo nada :( alguien me ayuda?? despues les cuento un chisme jaja
+    </div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l4')">👍 Me gusta (<b id="l4">54</b>)</span> &nbsp; <span>💬 Comentar (9)</span>
+    </div>
+  </div>
+
+  <!-- POST 5 - VIDEOJUEGOS -->
+  <div style="border:1px solid #ccc; margin:15px 8px; padding:0;">
+    <div style="padding:10px; display:flex; gap:10px;">
+      <img src="https://i.pravatar.cc/100?img=15" style="width:50px; height:50px; border-radius:50%;">
+      <div>
+        <b>ElProGamer_SV</b> <span style="color:#888; font-size:12px;">@pro_gamer_sv</span><br>
+        <span style="font-size:11px; color:#999;">Hace 1 dia · desde San Salvador</span>
+      </div>
+    </div>
+    <div style="padding:0 12px 12px 12px; font-size:14px;">
+      Alguien mas esta jugando GTA V?? lo acaban de sacar para PC y esta epico, yo ya hice mi primer atraco con mis amigos xD si quieren jugamos, mi ID: ProGamer_SV_2012
+    </div>
+    <div style="background:#f2f2f2; padding:8px 12px; font-size:13px; border-top:1px solid #ddd;">
+      <span style="cursor:pointer;" onclick="likeMe('l5')">👍 Me gusta (<b id="l5">132</b>)</span> &nbsp; <span>💬 Comentar (28)</span>
+    </div>
+  </div>
+
+  <center style="margin:25px 0; font-size:11px; color:#999; border-top:2px dashed #ff9900; padding:15px;">
+    BlogsDelDia.org © 2012-2015<br>Creado por Carlitos - Visitante N° <span style="background:#000; color:#0f0; padding:2px 5px; font-family:monospace;">0045829</span><br>
+    19476
   </center>
 
 </div>
 
 <script>
-let liked = false;
-let totalLikes = 2431;
-function darLike(){
-  const el = document.getElementById('likes');
-  const tu = document.getElementById('tu-like');
-  if(!liked){
-    totalLikes++;
-    el.textContent = totalLikes.toLocaleString();
-    tu.textContent = '¡Te gusta esto! (solo tu lo ves)';
-    liked = true;
-    document.getElementById('likeBtn').style.color = '#ff9900';
+function likeMe(id){
+  const el = document.getElementById(id);
+  let num = parseInt(el.textContent);
+  if(el.dataset.liked !== '1'){
+    el.textContent = num + 1;
+    el.dataset.liked = '1';
+    if(id==='l3'){ document.getElementById('t3').textContent='¡Te gusta! (solo tu)'; }
   } else {
-    totalLikes--;
-    el.textContent = totalLikes.toLocaleString();
-    tu.textContent = '';
-    liked = false;
-    document.getElementById('likeBtn').style.color = '#3b5998';
+    el.textContent = num - 1;
+    el.dataset.liked = '0';
+    if(id==='l3'){ document.getElementById('t3').textContent=''; }
   }
-}
-function comentar(text){
-  if(!text) return;
-  const div = document.createElement('div');
-  div.style.fontSize='12px';
-  div.style.marginTop='8px';
-  div.innerHTML = '<b>Tu:</b> ' + text + ' <span style="color:#ff9900; font-size:10px;">(solo visible para ti)</span>';
-  document.getElementById('misComents').appendChild(div);
 }
 </script>
 
 </body>
-  </html>
+          </html>
