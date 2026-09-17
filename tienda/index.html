@@ -10,16 +10,16 @@ body{background:#f5f5f5}
 .header{background:#fff;padding:10px;display:flex;gap:10px;align-items:center;position:sticky;top:0;z-index:99;border-bottom:1px solid #ddd}
 .logo-box{background:#000;color:#0f0;padding:8px;font-size:12px;font-weight:bold}
 .search{flex:1;background:#eee;border:none;padding:8px;border-radius:20px}
-.cart-btn{background:#000;color:#fff;border:none;padding:8px 12px;border-radius:20px;font-size:16px}
+.cart-btn{background:#000;color:#fff;border:none;padding:8px 12px;border-radius:20px;font-size:18px}
 .banner{background:#ff7701;color:#fff;text-align:center;padding:6px;font-size:12px;font-weight:bold}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px}
 .card{background:#fff;border-radius:8px;overflow:hidden;border:1px solid #eee}
-.card img{width:100%;height:160px;object-fit:cover;background:#ddd;display:block}
+.card img{width:100%;height:170px;object-fit:cover;display:block}
 .info{padding:8px}
 .title{font-size:12px;height:28px;overflow:hidden}
 .price{color:red;font-weight:bold}
 .old{color:#999;font-size:11px;text-decoration:line-through;margin-left:4px}
-.btn-add{width:100%;background:#000;color:#fff;border:none;padding:7px;border-radius:20px;margin-top:6px;font-size:12px;font-weight:bold}
+.btn-add{width:100%;background:#000;color:#fff;border:none;padding:7px;border-radius:20px;margin-top:6px;font-size:12px}
 #cartDrawer{position:fixed;top:0;right:-100%;width:80%;height:100%;background:#fff;z-index:999;transition:0.3s;padding:15px}
 #cartDrawer.open{right:0}
 #overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;z-index:998}
@@ -41,11 +41,7 @@ body{background:#f5f5f5}
 <div id="cartTotal" style="margin-top:10px;font-weight:bold"></div>
 <button style="width:100%;margin-top:10px;background:#ff7701;color:#fff;border:none;padding:12px;border-radius:8px;font-weight:bold" onclick="location.href='../chorizo/'">COMPRAR</button>
 </div>
-
-<audio id="musicaTienda" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
-
+<audio id="musicaTienda" loop><source src="musica.mp3" type="audio/mpeg"></audio>
 <script>
 const productos=[
 {id:1,nombre:"Lentes Curly Power",precio:12.99,precioOld:59.99,img:"lentes.jpg"},
@@ -71,9 +67,22 @@ for(let i=0;i<productos.length;i++){
 let p=productos[i];
 let d=document.createElement("div");
 d.className="card";
-d.innerHTML="<img src='"+p.img+"' alt='"+p.nombre+"' onerror=\"this.src='https://placehold.co/300x300/000/0f0?text='+encodeURIComponent('"+p.nombre+"')\"><div class='info'><div class='title'>"+p.nombre+"</div><div><span class='price'>$"+p.precio+"</span><span class='old'>$"+p.precioOld+"</span></div><button class='btn-add' onclick='addCart("+p.id+")'>Añadir</button></div>";
+d.innerHTML="<img src='"+p.img+"'><div class='info'><div class='title'>"+p.nombre+"</div><div><span class='price'>$"+p.precio+"</span><span class='old'>$"+p.precioOld+"</span></div><button class='btn-add' onclick='addCart("+p.id+")'>Añadir</button></div>";
 grid.appendChild(d);
 }
 function addCart(id){
 let prod=null;
-for(let j=0;j<productos.length;j++){if
+for(let j=0;j<productos.length;j++){if(productos[j].id===id){prod=productos[j]}}
+carrito.push(prod);
+document.getElementById("cartCount").innerText=carrito.length;
+let c=document.getElementById("cartItems");c.innerHTML="";let total=0;
+for(let k=0;k<carrito.length;k++){total+=carrito[k].precio;c.innerHTML+="<div style='padding:6px;border-bottom:1px solid #eee;font-size:12px'>"+carrito[k].nombre+" - $"+carrito[k].precio+"</div>";}
+document.getElementById("cartTotal").innerText="Total: $"+total.toFixed(2);
+openCart();
+}
+function openCart(){document.getElementById("cartDrawer").classList.add("open");document.getElementById("overlay").classList.add("show")}
+function closeCart(){document.getElementById("cartDrawer").classList.remove("open");document.getElementById("overlay").classList.remove("show")}
+document.addEventListener('click',function(){var a=document.getElementById('musicaTienda');if(a){a.volume=0.4;a.play().catch(function(){})}}, {once:true});
+</script>
+</body>
+</html>
